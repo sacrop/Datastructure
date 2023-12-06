@@ -182,6 +182,22 @@ public class SLinkedList {
         }
     }
 
+    // reversing a list 
+    public void reverse(){
+        if(Head==null||Head.next==null)return;
+        Node prev=Head;
+        Node curr=Head.next;
+        while (curr!=null) {
+            Node next=curr.next;
+            curr.next=prev;
+            // Update
+            prev=curr;
+            curr=next;
+        }
+        Head.next=null;
+        Head=prev;
+    }
+
     public static void main(String[] args) {
         SLinkedList list = new SLinkedList();
         Scanner sc = new Scanner(System.in);
@@ -194,8 +210,9 @@ public class SLinkedList {
         System.out.println(5 + " " + "Delete at end");
         System.out.println(6 + " " + "Replace ");
         System.out.println(7 + " " + "delete node before data ");
-        System.out.println(8 + " " + "insert node before data ");
-
+        System.out.println(8 + " " + "delete node after data ");
+        System.out.println(9 + " " + "insert node before data ");
+        System.out.println(10 + " " + "reverse a list ");
         do {
             System.out.println();
             System.out.println("enter one choice:");
@@ -247,6 +264,10 @@ public class SLinkedList {
                     value = sc.nextInt();
                     int data = sc.nextInt();
                     list.insertBefore(value, data);
+                    break;
+                case 10:
+                    System.out.println("reversing String");
+                    list.reverse();
                     break;
                 default:
                     System.out.println("wrong choice");
