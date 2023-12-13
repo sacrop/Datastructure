@@ -4,7 +4,7 @@ public class InsertionSortAlgo {
 
 	public static void main(String args[]) {
 
-		int[] arr = { 12, 3, 10, 5, 9, 11, 0 };
+		int[] arr = { 12, 3,3, 10, 5, 9, 11, 0 };
 		insertionSort(arr);
 		display(arr);
 	}
@@ -18,6 +18,7 @@ public class InsertionSortAlgo {
 				}
 			}
 		}
+
 	}
 
 	private static void swap(int[] arr, int j, int k) {
