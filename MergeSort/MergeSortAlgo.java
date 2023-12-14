@@ -26,12 +26,13 @@ private static int[] merge(int[] left, int[] right) {
 			mix[k]=right[j];
 			j++;
 		}
-		if(left[i]<right[j]){
+		else {
 			mix[k]=left[i];
 			i++;
 		}
 		k++;
-		while(i<left.length){
+	}
+	while(i<left.length){
 			mix[k]=left[i];
 			i++;
 			k++;
@@ -41,7 +42,6 @@ private static int[] merge(int[] left, int[] right) {
 			j++;
 			k++;
 		}
-	}
 	return mix;
 }
 
