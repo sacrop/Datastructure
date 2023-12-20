@@ -7,12 +7,14 @@ public class Trees{
         Node right;
         Node(int value){
             this.value=value; 
-            left=right=null;
         }
     }
     private Node root;
     public static void main(String[] args) {
         Scanner scanner=new Scanner(System.in);
+        Trees trees=new Trees();
+        trees.populate(scanner);
+        trees.display();
 
     }
 
@@ -40,4 +42,16 @@ public class Trees{
             populate(scanner,node.right);
         }
     }
+    public void display(){
+        display(root," ");
+    }
+    private void display(Node node,String indent){
+        if(node==null){
+            return;
+        }
+        System.out.println(indent+node.value);
+        display(node.left,indent+"\t");
+        display(node.right,indent+"\t");
+    }
+
 }
