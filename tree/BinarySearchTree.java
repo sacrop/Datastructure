@@ -1,13 +1,16 @@
 public class BinarySearchTree {
     public static void main(String[] args) {
         BinarySearchTree bst=new BinarySearchTree();
-        bst.insertNode(10);
+        bst.insertNode(30);
         bst.insertNode(20);
-        bst.insertNode(33);
+        bst.insertNode(3);
         bst.insertNode(34);
-        bst.display();
-        bst.delete(33);
-        bst.display();
+        bst.insertNode(50);
+        bst.insertNode(5);
+        // bst.display();
+        // bst.delete(33);
+        // bst.display();
+        // bst.inOrder();
     }
     class Node{
         private int val;
@@ -81,6 +84,15 @@ public class BinarySearchTree {
             node=node.left;
         }
         return min;
+    }
+    public void inOrder(){
+        inOrder(root);
+    }
+    public void inOrder(Node node){
+        if(node==null)return ;
+        inOrder(node.left);
+        System.out.println(node.val+" ");
+        inOrder(node.right);
     }
     
 }
