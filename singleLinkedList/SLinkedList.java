@@ -181,22 +181,26 @@ public class SLinkedList {
             System.out.println("node added succesfully");
         }
     }
+    public void reverse(){
+        Head=reverse(Head);
+
+    }
 
     // reversing a list 
-    public void reverse(){
-        if(Head==null||Head.next==null)return;
-        Node prev=Head;
-        Node curr=Head.next;
-        while (curr!=null) {
-            Node next=curr.next;
-            curr.next=prev;
-            // Update
-            prev=curr;
-            curr=next;
-        }
-        Head.next=null;
-        Head=prev;
-    }
+    // public void reverse(){
+    //     if(Head==null||Head.next==null)return;
+    //     Node prev=Head;
+    //     Node curr=Head.next;
+    //     while (curr!=null) {
+    //         Node next=curr.next;
+    //         curr.next=prev;
+    //         // Update
+    //         prev=curr;
+    //         curr=next;
+    //     }
+    //     Head.next=null;
+    //     Head=prev;
+    // }
 
     public static void main(String[] args) {
         SLinkedList list = new SLinkedList();
