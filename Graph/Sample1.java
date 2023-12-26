@@ -17,10 +17,14 @@ public class Sample1 {
         }
         graph[0].add(new Edge(0, 1));
         graph[0].add(new Edge(0, 2));
+        graph[1].add(new Edge(1, 0));
         graph[1].add(new Edge(1, 3));
+        graph[2].add(new Edge(2, 0));
         graph[2].add(new Edge(2, 4));
+        graph[3].add(new Edge(3, 1));
         graph[3].add(new Edge(3, 4));
         graph[3].add(new Edge(3, 5));
+        graph[4].add(new Edge(4, 2));
         graph[4].add(new Edge(4, 3));
         graph[4].add(new Edge(4, 5));
         graph[5].add(new Edge(5, 3));
@@ -36,10 +40,10 @@ public class Sample1 {
         }
     }
 
-    public void bfs(ArrayList<Edge>[] graph,int v){
+    public void bfs(ArrayList<Edge>[] graph,int start,boolean[] visit){
         Queue<Integer> que=new LinkedList<>();
-        boolean[] visit=new boolean[v];
-        que.add(0);
+        
+        que.add(start);
         while(!que.isEmpty()){
             int curr=que.remove();
             if(visit[curr]==false){
@@ -52,13 +56,34 @@ public class Sample1 {
             }        
         }
     }
+    public void dfs(ArrayList<Edge>[] graph,int curr,boolean[] vst){
+            System.out.print(curr+" ");
+            vst[curr]=true;
+            for(int i=0;i<graph[curr].size();i++){
+                Edge e=graph[curr].get(i);
+                if(vst[e.dest]==false)
+                dfs(graph, e.dest, vst);
+            }
+    }
 
     public static void main(String[] args) {
         int V=7;
         ArrayList<Edge>[] graph=new ArrayList[V];
         Sample1 smp=new Sample1();
         smp.createGraph(graph);
-        smp.getneighbour(5, graph);
-        smp.bfs(graph, V);
+        boolean[] visit=new boolean[V];
+        for(int i=0;i<V;i++){
+            if(visit[i]==false){
+                smp.bfs(graph, i,visit);
+            }
+        }
+        System.out.println();
+        // dfs
+        boolean[] vst=new boolean[V];
+        for(int i=0;i<V;i++){
+            if(vst[i]==false){
+                smp.dfs(graph,i,vst);
+            }
+        }
     }
 }
