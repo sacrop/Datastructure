@@ -7,10 +7,7 @@ public class BinarySearchTree {
         bst.insertNode(34);
         bst.insertNode(50);
         bst.insertNode(5);
-        // bst.display();
-        // bst.delete(33);
-        // bst.display();
-        // bst.inOrder();
+
     }
     class Node{
         private int val;
