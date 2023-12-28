@@ -42,7 +42,6 @@ public class Sample1 {
 
     public void bfs(ArrayList<Edge>[] graph,int start,boolean[] visit){
         Queue<Integer> que=new LinkedList<>();
-        
         que.add(start);
         while(!que.isEmpty()){
             int curr=que.remove();
